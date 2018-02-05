@@ -1,3 +1,51 @@
-h1 {
-    color: red;
+body {
+    font-family: 'Averta','Avenir W02','Helvetica Neue',helvetica,arial,sans-serif;
+    color: #2A3956;
 }
+
+.estimator-container h1 {
+    text-align: center;
+}
+
+.estimator-container {
+    width: 80vw;
+    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.paymentMethodDirections {
+    text-align: center;
+    font-size: 2vh;
+    margin-bottom: 2vh;
+/*    color: #00b9ff;*/
+}
+
+.paymentMethod {
+    width: auto;
+    overflow-y: auto;
+    font-family: "Averta","Avenir W02","Avenir",Helvetica,Arial,sans-serif;
+}
+
+.paymentMethodButton {
+    float: left;
+    width: 30%;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    text-align: center;
+    border: solid 0.1vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border-radius: 0.5vh;
+}
+
+.paymentMethodButton:hover {
+    cursor: pointer;
+}
+
+.show-delivery-window {
+    font-size: 2vh;
+    text-align: center;
+    margin-top: 2vh;
+}
+

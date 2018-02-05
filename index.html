@@ -7,18 +7,47 @@
     <link rel="stylesheet" href="design.css"/>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="functions.js"></script>
+    <script src="designFunctions.js"></script>
 </head>
 
 <body>
-    <h1>TW Transfer Estimator</h1>
+
+    <div class="estimator-container">
+        <h1>Transfer Estimator</h1>
+
+
+
+        <div class="paymentMethod">
+            <div class="paymentMethodDirections">
+                How would you like to transfer?
+            </div>
+            <div class="paymentMethodButton"
+                 onclick="clickPaymentMethodButton('paymentA')"
+                 id="paymentAButton">
+                ACH Bank Debit
+            </div>
+            <dev class="paymentMethodButton"
+                 onclick="clickPaymentMethodButton('paymentB')"
+                 id="paymentBButton">
+                Credit/Debit Cards
+            </dev>
+            <dev class="paymentMethodButton"
+                 onclick="clickPaymentMethodButton('paymentC')"
+                 id="paymentCButton">
+                SWIFT
+            </dev>
+        </div>
+
+        <div class="show-delivery-window">
+            If you send now, it should arrive by<br>
+        </div>
+    </div>
 
     <div class="randomGeneratorButton" onclick="testRun()">
         Test Drive
     </div>
 
-    <div class="show-delivery-window">
 
-    </div>
 </body>
 
 </html>
