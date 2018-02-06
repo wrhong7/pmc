@@ -1,7 +1,8 @@
 function clickPaymentMethodButton(paymentMethod) {
   console.log(paymentMethod)
   paymentMethodSelected = paymentMethod;
-  highlightButtonClicked(paymentMethod)
+  highlightButtonClicked('payment'+paymentMethod);
+  runEstimator(paymentMethod)
 }
 
 function highlightButtonClicked(paymentMethod) {
@@ -20,3 +21,41 @@ function highlightButtonClicked(paymentMethod) {
   })
 
 }
+
+function hideTestingConsoleClicked() {
+  $(".test-controller-container").css({
+    "height": "9vh",
+    "overflow-y": "hidden",
+  });
+
+  $(".chevron-hide-button").css({
+    "display": "none",
+  })
+
+  $(".chevron-expand-button").css({
+    "display": "inline-block",
+  })
+}
+
+function expandTestingConsoleClicked() {
+  $(".chevron-expand-button").css({
+    "display": "inline-display",
+  })
+
+  $(".test-controller-container").css({
+    "height": "40vh",
+    "overflow-y": "auto",
+  });
+
+  $(".chevron-expand-button").css({
+    "display": "none",
+  })
+
+  $(".chevron-hide-button").css({
+    "display": "inline-block",
+  })
+}
+
+$( document ).ready(function() {
+  hideTestingConsoleClicked()
+});

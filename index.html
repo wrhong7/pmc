@@ -3,7 +3,7 @@
 <head>
     <title>Title of the document</title>
     <link href='https://fonts.googleapis.com/css?family=Raleway:thin|Katibeh|Dancing+Script:cursive|Montserrat:400,600|Lato|Pacifico|Cookie|Arizonia|Great+Vibes' rel='stylesheet'/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="design.css"/>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="functions.js"></script>
@@ -22,31 +22,67 @@
                 How would you like to transfer?
             </div>
             <div class="paymentMethodButton"
-                 onclick="clickPaymentMethodButton('paymentA')"
+                 onclick="clickPaymentMethodButton('A')"
                  id="paymentAButton">
-                ACH Bank Debit
+                Payment A
             </div>
             <dev class="paymentMethodButton"
-                 onclick="clickPaymentMethodButton('paymentB')"
+                 onclick="clickPaymentMethodButton('B')"
                  id="paymentBButton">
-                Credit/Debit Cards
+                Payment B
             </dev>
             <dev class="paymentMethodButton"
-                 onclick="clickPaymentMethodButton('paymentC')"
+                 onclick="clickPaymentMethodButton('C')"
                  id="paymentCButton">
-                SWIFT
+                Payment C
             </dev>
         </div>
 
-        <div class="show-delivery-window">
-            If you send now, it should arrive by<br>
+        <div class="delivery-window-container">
+            <span class="show-delivery-prompt">
+                If you send now, it should arrive by
+            </span>
+            <span class="show-delivery-window">
+
+            </span>
         </div>
+
     </div>
 
-    <div class="randomGeneratorButton" onclick="testRun()">
-        Test Drive
-    </div>
+    <div class="test-controller-container">
+        <div class="chevron-icon-box">
+            <div class="chevron-hide-button" onclick="hideTestingConsoleClicked()">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="chevron-expand-button" onclick="expandTestingConsoleClicked()">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+        </div>
 
+        <div class="random-timestamp-header">
+            Testing Console for Estimator
+        </div>
+        <div class="random-timestamp-box">
+        </div>
+        <div class="random-year-box-directions">
+        Please click year for random date generation.
+        </div>
+        <div class="random-year-box-container">
+            <div class="random-year-box" id="2015-box" onclick="yearForRandomGenerator('2015')">
+                2015
+            </div>
+            <div class="random-year-box" id="2016-box" onclick="yearForRandomGenerator('2016')">
+                2016
+            </div>
+            <div class="random-year-box" id="2017-box" onclick="yearForRandomGenerator('2017')">
+                2017
+            </div>
+            <div class="random-year-box" id="2018-box" onclick="yearForRandomGenerator('2018')">
+                2018
+            </div>
+        </div>
+
+    </div>
 
 </body>
 

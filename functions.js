@@ -74,13 +74,18 @@ var holidays = {
   },
 };
 
-function transactionTimestampGenerator() {
-  var year, startDateTimestamp, endDateTimestamp, randomDate;
+var year = 2015;
 
-  year = [2015, 2016, 2017, 2018][Math.floor(Math.random() * 4)];
+function transactionTimestampGenerator() {
+  var startDateTimestamp, endDateTimestamp, randomDate;
+
+  // year = [2015, 2016, 2017, 2018][Math.floor(Math.random() * 4)];
   startDateTimestamp = new Date("01/01/" + year);
   endDateTimestamp = new Date("12/31/" + year);
   randomDate = new Date(+startDateTimestamp + Math.random() * (endDateTimestamp - startDateTimestamp));
+
+  $(".random-timestamp-box").empty();
+  $(".random-timestamp-box").append("Current Time<br>"+randomDate);
 
   return randomDate;
 }
@@ -124,7 +129,7 @@ function getArrivesBy(hour) {
   if (hour >= 0 && hour <= 12) {
     return "noon"
   } else if (hour >= 12 && hour <= 1959) {
-    return "8PM"
+    return "afternoon"
   } else if (hour >= 2000 && hour <= 2359) {
     return "midnight"
   }
@@ -142,12 +147,27 @@ function renderDeliveryEstimate(paymentTimeStamp, deliveryEstimate) {
   hour = expectedDeliveryTimestamp.getHours();
   arrivesBy = getArrivesBy(hour);
 
+  $(".random-timestamp-box").append("<br>Estimated Time of Delivery<br>"+expectedDeliveryTimestamp);
+
   $(".show-delivery-window").append(
-    "Will be transferred by " + day + " (" + date + " " + month + ") " + arrivesBy + "."
+    day + " (" + date + " " + month + ") " + arrivesBy + "."
   );
 
   if (deliveryEstimate >= 0.5) {
-    $(".show-delivery-window").append("<br/>Delivery is too slow?");
+    $(".show-delivery-window").append(
+      "<div class='delivery-recommendation-container'>" +
+      "<span class='faster-option-prompt'>Do you need it sooner?</span>" +
+      "<span class='calculation-method-prompt'>How is this calculated?</span>" +
+      "</div>"
+    );
+  }
+
+  if (deliveryEstimate < 0.5) {
+    $(".show-delivery-window").append(
+      "<div class='delivery-recommendation-container'>" +
+      "<span class='calculation-method-prompt'>How is this calculated?</span>" +
+      "</div>"
+    );
   }
 
 }
@@ -212,9 +232,24 @@ function paymentEstimatorMain(paymentTimestamp, paymentMethod) {
   }
 }
 
-function testRun() {
+function runEstimator(paymentMethod) {
   $(".show-delivery-window").empty();
   testDate = transactionTimestampGenerator();
-  $(".show-delivery-window").append("sent on " + testDate + "<br>");
-  paymentEstimatorMain(testDate, "C");
+  paymentEstimatorMain(testDate, paymentMethod);
+}
+
+function yearForRandomGenerator(yearClicked) {
+  year = yearClicked;
+
+  $(".random-year-box").css({
+    "background-color": "white",
+    "border": "solid 0.1vh rgb(42, 57, 86)",
+    "color": "#2A3956"
+  })
+
+  $("#"+year+"-box").css({
+    "background-color": "rgb(42, 57, 86)",
+    "border": "solid 0.1vh rgb(42, 57, 86)",
+    "color": "white"
+  })
 }
